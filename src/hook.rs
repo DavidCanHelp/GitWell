@@ -3,7 +3,7 @@
 //! The hook prints a one-line nudge after each commit if the repo has
 //! accumulated stale work:
 //!
-//! ```
+//! ```text
 //! GitWell: 3 sessions, 11 findings across 1 repo
 //! ```
 //!

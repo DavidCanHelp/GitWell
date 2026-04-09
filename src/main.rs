@@ -1,19 +1,9 @@
 //! GitWell — surface abandoned work in git repositories.
-
-mod cluster;
-mod config;
-mod execute;
-mod git;
-mod hook;
-mod json;
-mod narrative;
-mod report;
-mod report_md;
-mod scanner;
-mod trends;
-mod triage;
-mod triage_state;
-mod util;
+//!
+//! The CLI is a thin driver over the `gitwell` library crate. The
+//! modules (`cluster`, `config`, `scanner`, …) live in `src/lib.rs` and
+//! are re-exported from there so integration tests in `tests/` can
+//! import them as part of the public API.
 
 use std::collections::HashMap;
 use std::env;
@@ -21,10 +11,11 @@ use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::ExitCode;
 
-use config::Config;
-use git::{is_repo_root, Repo};
-use report::RepoReport;
-use triage_state::TriageState;
+use gitwell::config::{self, Config};
+use gitwell::git::{is_repo_root, Repo};
+use gitwell::report::{self, RepoReport};
+use gitwell::triage_state::TriageState;
+use gitwell::{cluster, execute, hook, report_md, scanner, triage, util};
 
 enum Command {
     Scan {
