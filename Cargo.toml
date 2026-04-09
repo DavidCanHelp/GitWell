@@ -1,0 +1,19 @@
+[package]
+name = "gitwell"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+authors = ["David Liedle"]
+description = "Surface abandoned work in git repositories — stale branches, forgotten stashes, orphaned commits, WIP markers."
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/davidcanhelp/GitWell"
+homepage = "https://github.com/davidcanhelp/GitWell"
+keywords = ["git", "cli", "productivity", "workflow", "maintenance"]
+categories = ["command-line-utilities", "development-tools"]
+
+[[bin]]
+name = "gitwell"
+path = "src/main.rs"
+
+[dependencies]
